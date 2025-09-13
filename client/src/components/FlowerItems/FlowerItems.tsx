@@ -3,6 +3,7 @@ import FlowerCard from "../FlowerCard/FlowerCard";
 import styles from "./FlowerItems.module.scss";
 import { useCart } from "../../context/useCart";
 
+const API_URL = "https://flowerdeliveryapp-production.up.railway.app";
 interface Product {
   id: number;
   name: string;
@@ -20,7 +21,7 @@ const FlowerItems: React.FC<FlowerItemsProps> = ({ activeShopId }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const { addToCart } = useCart();
   useEffect(() => {
-    fetch("http://localhost:5000/api/product")
+    fetch(`${API_URL}/api/product`)
       .then(res => res.json())
       .then(data => setProducts(data.rows));
   }, []);
@@ -36,12 +37,12 @@ const FlowerItems: React.FC<FlowerItemsProps> = ({ activeShopId }) => {
           key={p.id}
           name={p.name}
           price={p.price}
-          imageUrl={`http://localhost:5000/${p.imageUrl}`}
+          imageUrl={`${API_URL}/${p.imageUrl}`}
           onAddToCart={() =>
             addToCart({
               id: p.id,
               name: p.name,
-              imageUrl: `http://localhost:5000/${p.imageUrl}`,
+              imageUrl: `${API_URL}/${p.imageUrl}`,
               price: p.price,
             })
           }

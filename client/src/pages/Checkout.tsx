@@ -2,6 +2,7 @@ import { useCart } from "../context/useCart";
 import { useState } from "react";
 import styles from "./Chekout.module.scss";
 
+const API_URL = "https://flowerdeliveryapp-production.up.railway.app";
 export default function Checkout() {
   const { items, totalPrice, updateQuantity } = useCart();
 
@@ -16,7 +17,7 @@ export default function Checkout() {
     e.preventDefault();
 
     try {
-      const orderResponse = await fetch("http://localhost:5000/api/order", {
+      const orderResponse = await fetch(`${API_URL}/api/order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -32,7 +33,7 @@ export default function Checkout() {
       console.log(order);
 
       for (const item of items) {
-        await fetch("http://localhost:5000/api/order_item", {
+        await fetch(`${API_URL}/api/order_item`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

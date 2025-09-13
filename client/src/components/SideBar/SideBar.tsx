@@ -12,6 +12,7 @@ interface SideBarProps {
   setActiveShopId: (id: number) => void;
 }
 
+const API_URL = "https://flowerdeliveryapp-production.up.railway.app";
 export default function SideBar({
   activeShopId,
   setActiveShopId,
@@ -19,7 +20,7 @@ export default function SideBar({
   const [shops, setShops] = useState<Shop[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/shop")
+    fetch(`${API_URL}/api/shop`)
       .then(res => res.json())
       .then(data => setShops(data));
   }, []);
