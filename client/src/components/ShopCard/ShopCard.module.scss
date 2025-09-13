@@ -1,0 +1,22 @@
+.card {
+  width: 12rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.cardActive {
+  width: 12rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  background-color: lightgray;
+  cursor: pointer;
+}

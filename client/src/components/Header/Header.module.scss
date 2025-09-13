@@ -1,0 +1,25 @@
+html{
+  background-color: #f4f5f5cc;
+  font-family: "Montserrat", sans-serif;
+}
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+.wrapper {
+  height: 5rem;
+  width: clamp(22.5rem, 66.6666vw, 80rem);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navBtns {
+  display: flex;
+  gap: 1rem;
+}
+.sortBtns {
+  display: flex;
+  gap: 1rem;
+}
