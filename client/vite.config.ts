@@ -10,4 +10,9 @@ export default defineConfig({
     },
   },
   plugins: [react(), svgr()],
+  preview: {
+    host: true,
+    port: Number(process.env.PORT) || 5173, // если PORT не задан, используем 5173
+    allowedHosts: ["flowerdeliveryapp-production-0e48.up.railway.app"],
+  },
 });
